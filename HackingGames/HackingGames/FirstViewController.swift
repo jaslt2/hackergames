@@ -7,15 +7,15 @@
 //
 
 import UIKit
+import GoogleSignIn
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController,GIDSignInDelegate {
+    
 
     @IBOutlet weak var HelloView: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        FirebaseManager.sharedInstance.getUsers()
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,6 +23,9 @@ class FirstViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    //MARK : - Google Sign In Protocol
+    public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+    }
 }
 

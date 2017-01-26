@@ -15,17 +15,28 @@ struct FirebaseManager {
     
     static let sharedInstance = FirebaseManager()
     
-    private init() {
+    private init()
+    {
         self.databaseReference = FIRDatabase.database().reference()
     }
     
-    func getUsers()
+    func getUsers(completion:@escaping (_ user : [User]) -> Void)
     {
         self.databaseReference.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
 
             let value = snapshot.value as? NSDictionary
             
-            print (value)
+            print (value ?? "")
+            
+            let listUsers : NSMutableArray = NSMutableArray()
+            
+           /* for  infoUser in value!
+            {
+            let user : User  = User(infos: infoUser as! NSDictionary)
+                
+            listUsers.add(user)
+            }
+            completion((listUsers as NSArray) as! [User])*/
             
         }) { (error) in
             print(error.localizedDescription)

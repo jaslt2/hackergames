@@ -8,12 +8,12 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn;
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Use Firebase library to configure APIs
