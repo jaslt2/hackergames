@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
+
 class FirstViewController: UIViewController, GIDSignInUIDelegate,GIDSignInDelegate {
     
     let disabilitySegue : String = "SignInToDisabilityFilterSegue"
@@ -31,8 +32,6 @@ class FirstViewController: UIViewController, GIDSignInUIDelegate,GIDSignInDelega
         GIDSignIn.sharedInstance().delegate = self
         
     }
-    
-    
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         // ...
@@ -85,4 +84,3 @@ class FirstViewController: UIViewController, GIDSignInUIDelegate,GIDSignInDelega
         FIRDatabase.database().reference().child("users").child((user?.uid)!).setValue(["displayName": self.user?.displayName, "email": self.user?.email, "photoURL": self.user?.photoURL?.absoluteString, "location": ["lat": "51.5033640", "long" : "-0.1276250"]])
     }
 }
-

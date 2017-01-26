@@ -15,6 +15,10 @@
 		45E917B51E3A06590025AB1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45E917B31E3A06590025AB1C /* LaunchScreen.storyboard */; };
 		45E917BE1E3A07900025AB1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45E917BD1E3A07900025AB1C /* GoogleService-Info.plist */; };
 		45E917C11E3A11B40025AB1C /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E917C01E3A11B40025AB1C /* FirebaseManager.swift */; };
+		45E917C61E3A18140025AB1C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E917C51E3A18140025AB1C /* User.swift */; };
+		45E917C81E3A19CD0025AB1C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E917C71E3A19CD0025AB1C /* Task.swift */; };
+		45E917CA1E3A1ADA0025AB1C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E917C91E3A1ADA0025AB1C /* CoreLocation.framework */; };
+		45E917D21E3A3E9A0025AB1C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E917D11E3A3E9A0025AB1C /* MapViewController.swift */; };
 		731B5A30F3F4C862C4729103 /* Pods_HackingGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A9F19AA024252DB3100106 /* Pods_HackingGames.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +33,10 @@
 		45E917B61E3A06590025AB1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45E917BD1E3A07900025AB1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		45E917C01E3A11B40025AB1C /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		45E917C51E3A18140025AB1C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		45E917C71E3A19CD0025AB1C /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		45E917C91E3A1ADA0025AB1C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		45E917D11E3A3E9A0025AB1C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		91A9F19AA024252DB3100106 /* Pods_HackingGames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackingGames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB843B1F63337CFF623F0D2 /* Pods-HackingGames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackingGames.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackingGames/Pods-HackingGames.debug.xcconfig"; sourceTree = "<group>"; };
 		D5C65B95C2C0AF30F448CD09 /* Pods-HackingGames.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackingGames.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackingGames/Pods-HackingGames.release.xcconfig"; sourceTree = "<group>"; };
@@ -39,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45E917CA1E3A1ADA0025AB1C /* CoreLocation.framework in Frameworks */,
 				731B5A30F3F4C862C4729103 /* Pods_HackingGames.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,6 +58,7 @@
 		11C957BC753EABE63ECF3470 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45E917C91E3A1ADA0025AB1C /* CoreLocation.framework */,
 				91A9F19AA024252DB3100106 /* Pods_HackingGames.framework */,
 			);
 			name = Frameworks;
@@ -75,10 +85,12 @@
 		45E917A71E3A06590025AB1C /* HackingGames */ = {
 			isa = PBXGroup;
 			children = (
+				45E917D31E3A3EA30025AB1C /* AppDelegate */,
+				45E917C41E3A17F80025AB1C /* Helper */,
 				45E917BF1E3A0FE90025AB1C /* Model */,
 				45E917BC1E3A07780025AB1C /* Configuration */,
-				45E917A81E3A06590025AB1C /* AppDelegate.swift */,
 				45E917AA1E3A06590025AB1C /* FirstViewController.swift */,
+				45E917D11E3A3E9A0025AB1C /* MapViewController.swift */,
 				45E917AC1E3A06590025AB1C /* SecondViewController.swift */,
 				45E917AE1E3A06590025AB1C /* Main.storyboard */,
 				45E917B11E3A06590025AB1C /* Assets.xcassets */,
@@ -99,9 +111,26 @@
 		45E917BF1E3A0FE90025AB1C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				45E917C01E3A11B40025AB1C /* FirebaseManager.swift */,
+				45E917C51E3A18140025AB1C /* User.swift */,
+				45E917C71E3A19CD0025AB1C /* Task.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		45E917C41E3A17F80025AB1C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				45E917C01E3A11B40025AB1C /* FirebaseManager.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		45E917D31E3A3EA30025AB1C /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				45E917A81E3A06590025AB1C /* AppDelegate.swift */,
+			);
+			name = AppDelegate;
 			sourceTree = "<group>";
 		};
 		517535AEB6D57B21D129DC57 /* Pods */ = {
@@ -241,7 +270,10 @@
 				45E917C11E3A11B40025AB1C /* FirebaseManager.swift in Sources */,
 				45E917AD1E3A06590025AB1C /* SecondViewController.swift in Sources */,
 				45E917A91E3A06590025AB1C /* AppDelegate.swift in Sources */,
+				45E917C61E3A18140025AB1C /* User.swift in Sources */,
+				45E917C81E3A19CD0025AB1C /* Task.swift in Sources */,
 				45E917AB1E3A06590025AB1C /* FirstViewController.swift in Sources */,
+				45E917D21E3A3E9A0025AB1C /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

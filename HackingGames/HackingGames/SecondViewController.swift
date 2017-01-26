@@ -16,6 +16,7 @@ class SecondViewController: UIViewController {
     
     @IBOutlet weak var nodisability: UIButton!
     @IBOutlet weak var username: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         username.text = "Hi " + user.displayName! + "do you have a disability?";
