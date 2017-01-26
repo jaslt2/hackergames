@@ -56,7 +56,6 @@ class UserManager : NSObject
     func disconnectUser()
     {
         try! FIRAuth.auth()?.signOut()
-      //  self.delegate?.userIsDisconnected()
     }
     
      func checkIfUserExistAlready()

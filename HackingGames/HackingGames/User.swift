@@ -38,21 +38,21 @@ struct User
         {
         let infoLocation : NSDictionary = (infos["location"] as? NSDictionary)!
         
-        let latitude : CLLocationDegrees = infoLocation["lat"] as! CLLocationDegrees
-        let longitude : CLLocationDegrees = infoLocation["long"] as! CLLocationDegrees
+        let latitude : String = (infoLocation["lat"] as? String)!
+        let longitude : String = (infoLocation["long"] as? String)!
         
-        self.location = CLLocation(latitude:latitude,longitude:longitude)
+        self.location = CLLocation(latitude:Double(latitude)!,longitude:Double(longitude)!)
         }
         
         if(infos["task"] != nil)
         {
         let taskInfo : NSDictionary = infos["task"]  as! NSDictionary
-        
-        let taskType : Int = taskInfo["urgent"] as! Int
+
+        let taskType : NSNumber = (taskInfo["urgent"] as? NSNumber)!
         
         let taskStatus : String = taskInfo["status"] as! String
         
-        self.task = Task(desc: "", status: taskStatus, type: taskType)
+        self.task = Task(desc: "", status: taskStatus, type: Int(taskType))
         }
     }
 
