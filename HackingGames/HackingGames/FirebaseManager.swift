@@ -42,4 +42,6 @@ struct FirebaseManager {
             print(error.localizedDescription)
         }
     }
+    
+    
 }

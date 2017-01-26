@@ -10,6 +10,12 @@ import Foundation
 import ObjectMapper
 import CoreLocation
 
+
+enum Disability : Int
+{
+    case HAVE = 1,NONE
+}
+
 struct User
 {
     private (set) var name : String?

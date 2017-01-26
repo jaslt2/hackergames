@@ -1,83 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First View Controller-->
-        <scene sceneID="hNz-n2-bh7">
+        <!--Sign In View Controller-->
+        <scene sceneID="gS7-C0-O83">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="HackingGames" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NcN-2s-fYd" customClass="SignInViewController" customModule="HackingGames" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
-                        <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
+                        <viewControllerLayoutGuide type="top" id="gR4-BH-P0I"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xw3-0g-fzC"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                    <view key="view" contentMode="scaleToFill" id="qr5-u8-urk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFQ-Tx-Huj" customClass="GIDSignInButton">
-                                <rect key="frame" x="6" y="298" width="353" height="70"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vOr-gg-Q43" customClass="GIDSignInButton">
+                                <rect key="frame" x="0.0" y="252" width="375" height="163"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" label="Sign in">
-                                    <accessibilityTraits key="traits" none="YES"/>
-                                    <bool key="isElement" value="YES"/>
-                                </accessibility>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uFQ-Tx-Huj" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="7pR-uF-GVv"/>
-                            <constraint firstItem="uFQ-Tx-Huj" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-10" id="8zE-dc-j0L"/>
-                            <constraint firstItem="uFQ-Tx-Huj" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="T9V-KP-fUq"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="uFQ-Tx-Huj" secondAttribute="bottom" constant="250" id="bWi-lw-fnd"/>
+                            <constraint firstItem="Xw3-0g-fzC" firstAttribute="top" secondItem="vOr-gg-Q43" secondAttribute="bottom" constant="252" id="867-0W-Aza"/>
+                            <constraint firstItem="vOr-gg-Q43" firstAttribute="leading" secondItem="qr5-u8-urk" secondAttribute="leading" id="8gf-7R-h57"/>
+                            <constraint firstItem="vOr-gg-Q43" firstAttribute="centerY" secondItem="qr5-u8-urk" secondAttribute="centerY" id="YrV-Ba-ufT"/>
+                            <constraint firstItem="vOr-gg-Q43" firstAttribute="centerX" secondItem="qr5-u8-urk" secondAttribute="centerX" id="iCP-xt-YK5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="xza-KL-5XJ"/>
+                    <navigationItem key="navigationItem" id="Gno-z9-HzF"/>
                     <connections>
-                        <outlet property="signInButton" destination="uFQ-Tx-Huj" id="Yyh-it-JVo"/>
-                        <segue destination="rCV-eO-TcK" kind="show" identifier="SignInToDisabilityFilterSegue" id="s8X-pM-Dpt"/>
+                        <outlet property="signInButton" destination="vOr-gg-Q43" id="fcv-c0-Oxf"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="18a-H8-ys5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1688.8" y="-320.68965517241384"/>
-        </scene>
-        <!--Second View Controller-->
-        <scene sceneID="5w5-WK-XlW">
-            <objects>
-                <viewController id="rCV-eO-TcK" customClass="SecondViewController" customModule="HackingGames" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7h9-ea-2GV"/>
-                        <viewControllerLayoutGuide type="bottom" id="mTd-OK-0Gr"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="GXW-Li-nxa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptG-nc-aDK">
-                                <rect key="frame" x="172" y="223" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="username" destination="ptG-nc-aDK" id="o1r-PL-eTB"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nfb-s5-cTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2632.8000000000002" y="-321.58920539730138"/>
+            <point key="canvasLocation" x="3106" y="-806"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -92,14 +56,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="83" y="313" width="209.5" height="41.5"/>
+                                <rect key="frame" x="83" y="313" width="210" height="42"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="80" y="362.5" width="215" height="17"/>
+                                <rect key="frame" x="80" y="363" width="215" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -117,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="423"/>
+            <point key="canvasLocation" x="969" y="121"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -138,6 +102,28 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="XNN-ez-MD1">
+            <objects>
+                <viewController id="ED4-Ec-XIQ" customClass="MapViewController" customModule="HackingGames" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iuU-2A-lqL"/>
+                        <viewControllerLayoutGuide type="bottom" id="PWf-RG-PaQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Vo-lF-nAb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cKL-RG-6hY"/>
+                    <connections>
+                        <segue destination="NcN-2s-fYd" kind="presentation" identifier="SignInToDisabilityFilterSegue" modalTransitionStyle="coverVertical" id="ZW1-Yu-jiJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dNJ-M0-TcD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1988" y="-806"/>
+        </scene>
         <!--First-->
         <scene sceneID="lh5-VS-qXf">
             <objects>
@@ -150,12 +136,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="MAF-gi-ema"/>
+                        <segue destination="ED4-Ec-XIQ" kind="relationship" relationship="rootViewController" id="5XI-Mj-SUE"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V0z-PH-9Ca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="969" y="-806"/>
         </scene>
     </scenes>
     <resources>
