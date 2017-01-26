@@ -13,6 +13,8 @@
 		45E917B01E3A06590025AB1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45E917AE1E3A06590025AB1C /* Main.storyboard */; };
 		45E917B21E3A06590025AB1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45E917B11E3A06590025AB1C /* Assets.xcassets */; };
 		45E917B51E3A06590025AB1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45E917B31E3A06590025AB1C /* LaunchScreen.storyboard */; };
+		45E917BE1E3A07900025AB1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45E917BD1E3A07900025AB1C /* GoogleService-Info.plist */; };
+		731B5A30F3F4C862C4729103 /* Pods_HackingGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A9F19AA024252DB3100106 /* Pods_HackingGames.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,10 @@
 		45E917B11E3A06590025AB1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45E917B41E3A06590025AB1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45E917B61E3A06590025AB1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45E917BD1E3A07900025AB1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		91A9F19AA024252DB3100106 /* Pods_HackingGames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackingGames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFB843B1F63337CFF623F0D2 /* Pods-HackingGames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackingGames.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackingGames/Pods-HackingGames.debug.xcconfig"; sourceTree = "<group>"; };
+		D5C65B95C2C0AF30F448CD09 /* Pods-HackingGames.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackingGames.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackingGames/Pods-HackingGames.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				731B5A30F3F4C862C4729103 /* Pods_HackingGames.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11C957BC753EABE63ECF3470 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				91A9F19AA024252DB3100106 /* Pods_HackingGames.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		45E9179C1E3A06590025AB1C = {
 			isa = PBXGroup;
 			children = (
 				45E917A71E3A06590025AB1C /* HackingGames */,
 				45E917A61E3A06590025AB1C /* Products */,
+				517535AEB6D57B21D129DC57 /* Pods */,
+				11C957BC753EABE63ECF3470 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +73,7 @@
 		45E917A71E3A06590025AB1C /* HackingGames */ = {
 			isa = PBXGroup;
 			children = (
+				45E917BC1E3A07780025AB1C /* FirebaseConfiguration */,
 				45E917A81E3A06590025AB1C /* AppDelegate.swift */,
 				45E917AA1E3A06590025AB1C /* FirstViewController.swift */,
 				45E917AC1E3A06590025AB1C /* SecondViewController.swift */,
@@ -67,6 +85,23 @@
 			path = HackingGames;
 			sourceTree = "<group>";
 		};
+		45E917BC1E3A07780025AB1C /* FirebaseConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				45E917BD1E3A07900025AB1C /* GoogleService-Info.plist */,
+			);
+			name = FirebaseConfiguration;
+			sourceTree = "<group>";
+		};
+		517535AEB6D57B21D129DC57 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CFB843B1F63337CFF623F0D2 /* Pods-HackingGames.debug.xcconfig */,
+				D5C65B95C2C0AF30F448CD09 /* Pods-HackingGames.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +109,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45E917B91E3A06590025AB1C /* Build configuration list for PBXNativeTarget "HackingGames" */;
 			buildPhases = (
+				F9AC29C0D4EB2EC192D3FC2D /* [CP] Check Pods Manifest.lock */,
 				45E917A11E3A06590025AB1C /* Sources */,
 				45E917A21E3A06590025AB1C /* Frameworks */,
 				45E917A31E3A06590025AB1C /* Resources */,
+				1BF61FFB4CE69D96E9B2EE69 /* [CP] Embed Pods Frameworks */,
+				18C84FC83128F5D572A6EE0A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,12 +166,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				45E917B51E3A06590025AB1C /* LaunchScreen.storyboard in Resources */,
+				45E917BE1E3A07900025AB1C /* GoogleService-Info.plist in Resources */,
 				45E917B21E3A06590025AB1C /* Assets.xcassets in Resources */,
 				45E917B01E3A06590025AB1C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		18C84FC83128F5D572A6EE0A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackingGames/Pods-HackingGames-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1BF61FFB4CE69D96E9B2EE69 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackingGames/Pods-HackingGames-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9AC29C0D4EB2EC192D3FC2D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		45E917A11E3A06590025AB1C /* Sources */ = {
@@ -261,6 +348,7 @@
 		};
 		45E917BA1E3A06590025AB1C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFB843B1F63337CFF623F0D2 /* Pods-HackingGames.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8JVK53ZY4C;
@@ -274,6 +362,7 @@
 		};
 		45E917BB1E3A06590025AB1C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5C65B95C2C0AF30F448CD09 /* Pods-HackingGames.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8JVK53ZY4C;
@@ -304,6 +393,7 @@
 				45E917BB1E3A06590025AB1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
