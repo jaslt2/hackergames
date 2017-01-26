@@ -30,9 +30,11 @@ class MapPinViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.userToAssist = UserManager.sharedInstance.getFirebaseUser();
+        self.userToAssist = FirebaseManager.sharedInstance.getUserById(userId: UserManager.sharedInstance.getFirebaseUser().uid, completion: { (user : User) in
+            
+        })
         self.userToAssistName.text = self.userToAssist?.displayName;
-        self.userTaskDescription.text = self.userToAssist?.task.description;
+      //  self.userTaskDescription.text = self.userToAssist?.task.description;
     }
     
     override func didReceiveMemoryWarning() {

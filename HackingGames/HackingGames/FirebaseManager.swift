@@ -41,23 +41,17 @@ struct FirebaseManager {
         }
     }
     
-    func getUserById(completion:@escaping (_ user : [User]) -> Void)
+    func getUserById(userId : String, completion:@escaping (_ user : User) -> Void)
     {
-        self.databaseReference.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+        self.databaseReference.child("users/"+userId).observeSingleEvent(of: .value, with: { (snapshot) in
             
             let value = snapshot.value as? NSDictionary
             
             print (value ?? "")
             
-            let listUsers : NSMutableArray = NSMutableArray()
+             let user : User  = User(infos: value! )
             
-            /* for  infoUser in value!
-             {
-             let user : User  = User(infos: infoUser as! NSDictionary)
-             
-             listUsers.add(user)
-             }
-             completion((listUsers as NSArray) as! [User])*/
+             completion(user)
             
         }) { (error) in
             print(error.localizedDescription)
