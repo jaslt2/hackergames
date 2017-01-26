@@ -73,13 +73,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         guard let authentication = user.authentication else { return }
         let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                           accessToken: authentication.accessToken)
+        
+        print(credential)
         // ...
         FIRAuth.auth()?.signIn(with: credential) { (user, error) in
             // ...
+            
             if let error = error {
                 // ...
+                
+                print(error)
                 return
             }
+            print(user)
         }
     }
 

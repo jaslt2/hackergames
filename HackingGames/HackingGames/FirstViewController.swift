@@ -25,7 +25,8 @@ class FirstViewController: UIViewController, GIDSignInUIDelegate {
         FirebaseManager.sharedInstance.getUsers()
         
         GIDSignIn.sharedInstance().uiDelegate = self
-      //  GIDSignIn.sharedInstance().signIn()
+        GIDSignIn.sharedInstance().signIn()
+        
         
         // TODO(developer) Configure the sign-in button look/feel
         // ...
