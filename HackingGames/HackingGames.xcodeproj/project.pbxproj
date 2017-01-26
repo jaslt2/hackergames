@@ -14,6 +14,7 @@
 		45E917B21E3A06590025AB1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45E917B11E3A06590025AB1C /* Assets.xcassets */; };
 		45E917B51E3A06590025AB1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45E917B31E3A06590025AB1C /* LaunchScreen.storyboard */; };
 		45E917BE1E3A07900025AB1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45E917BD1E3A07900025AB1C /* GoogleService-Info.plist */; };
+		45E917C11E3A11B40025AB1C /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E917C01E3A11B40025AB1C /* FirebaseManager.swift */; };
 		731B5A30F3F4C862C4729103 /* Pods_HackingGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A9F19AA024252DB3100106 /* Pods_HackingGames.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		45E917B41E3A06590025AB1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45E917B61E3A06590025AB1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45E917BD1E3A07900025AB1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		45E917C01E3A11B40025AB1C /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		91A9F19AA024252DB3100106 /* Pods_HackingGames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackingGames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB843B1F63337CFF623F0D2 /* Pods-HackingGames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackingGames.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackingGames/Pods-HackingGames.debug.xcconfig"; sourceTree = "<group>"; };
 		D5C65B95C2C0AF30F448CD09 /* Pods-HackingGames.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackingGames.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackingGames/Pods-HackingGames.release.xcconfig"; sourceTree = "<group>"; };
@@ -73,7 +75,8 @@
 		45E917A71E3A06590025AB1C /* HackingGames */ = {
 			isa = PBXGroup;
 			children = (
-				45E917BC1E3A07780025AB1C /* FirebaseConfiguration */,
+				45E917BF1E3A0FE90025AB1C /* Model */,
+				45E917BC1E3A07780025AB1C /* Configuration */,
 				45E917A81E3A06590025AB1C /* AppDelegate.swift */,
 				45E917AA1E3A06590025AB1C /* FirstViewController.swift */,
 				45E917AC1E3A06590025AB1C /* SecondViewController.swift */,
@@ -85,12 +88,20 @@
 			path = HackingGames;
 			sourceTree = "<group>";
 		};
-		45E917BC1E3A07780025AB1C /* FirebaseConfiguration */ = {
+		45E917BC1E3A07780025AB1C /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
 				45E917BD1E3A07900025AB1C /* GoogleService-Info.plist */,
 			);
-			name = FirebaseConfiguration;
+			name = Configuration;
+			sourceTree = "<group>";
+		};
+		45E917BF1E3A0FE90025AB1C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				45E917C01E3A11B40025AB1C /* FirebaseManager.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		517535AEB6D57B21D129DC57 /* Pods */ = {
@@ -227,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45E917C11E3A11B40025AB1C /* FirebaseManager.swift in Sources */,
 				45E917AD1E3A06590025AB1C /* SecondViewController.swift in Sources */,
 				45E917A91E3A06590025AB1C /* AppDelegate.swift in Sources */,
 				45E917AB1E3A06590025AB1C /* FirstViewController.swift in Sources */,

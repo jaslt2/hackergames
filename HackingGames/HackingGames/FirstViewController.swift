@@ -10,9 +10,12 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
+    @IBOutlet weak var HelloView: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
+        FirebaseManager.sharedInstance.getUsers()
     }
 
     override func didReceiveMemoryWarning() {
