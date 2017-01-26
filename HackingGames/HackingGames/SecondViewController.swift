@@ -7,17 +7,19 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseAuth
 
 class SecondViewController: UIViewController {
 
     var user : FIRUser!
     
+    @IBOutlet weak var nodisability: UIButton!
     @IBOutlet weak var username: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        username.text = user.displayName;
+        username.text = "Hi " + user.displayName! + "do you have a disability?";
+        self.updateDisabilityFlag(hasDisability: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,6 +27,9 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func updateDisabilityFlag(hasDisability: Bool){
+        print("Updating disability flag")
+        FIRDatabase.database().reference().child("users/" + self.user.uid + "/hasDisability").setValue(hasDisability)
+    }
 }
 

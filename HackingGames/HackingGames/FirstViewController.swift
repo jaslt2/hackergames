@@ -50,7 +50,23 @@ class FirstViewController: UIViewController, GIDSignInUIDelegate,GIDSignInDelega
             }
             
             self.user = user
-            self.performSegue(withIdentifier: self.disabilitySegue, sender: self)
+            
+            // Lookup existing users
+            let userID = FIRAuth.auth()?.currentUser?.uid
+            FIRDatabase.database().reference().child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                let value = snapshot.value as? NSDictionary
+                
+                if value == nil{
+                    print("User " + userID! + " does not exist yet")
+                    self.createUser()
+                    self.performSegue(withIdentifier: self.disabilitySegue, sender: self)
+                } else {
+                    print("User " + userID! + " already exists")
+                }
+            }) { (error) in
+                print(error.localizedDescription)
+            }
         }
     }
     
@@ -62,7 +78,11 @@ class FirstViewController: UIViewController, GIDSignInUIDelegate,GIDSignInDelega
         
         let viewController : SecondViewController = segue.destination as! SecondViewController
         viewController.user = self.user
-        
+    }
+    
+    func createUser(){
+        print("Creating new user")
+        FIRDatabase.database().reference().child("users").child((user?.uid)!).setValue(["displayName": self.user?.displayName, "email": self.user?.email, "photoURL": self.user?.photoURL?.absoluteString, "location": ["lat": "51.5033640", "long" : "-0.1276250"]])
     }
 }
 
