@@ -14,8 +14,13 @@ class MapViewController: UIViewController {
     
     private let disabilitySegue : String = "SignInToDisabilityFilterSegue"
     
+    private let pinSegue : String = "MapToPinSegue"
+    
     private var user : FIRUser? = nil
     
+    @IBAction func goToPinButtonClicked(_ sender: UIButton) {
+         self.performSegue(withIdentifier: pinSegue, sender: self)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         self.user = nil
@@ -24,6 +29,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         signInTheUserIfRequired()
+        
     }
     
     func signInTheUserIfRequired()
