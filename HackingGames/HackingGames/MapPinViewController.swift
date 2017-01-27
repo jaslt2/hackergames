@@ -36,9 +36,7 @@ class MapPinViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-   
-        
+    
         FirebaseManager.sharedInstance.getUserById(userId: "39fkYXRAyHSsntJHMFl6EOrZSIW2", completion: { (user: User) -> Void in
          //   self.userToAssist =  user
             print("Loading user with task desription: "+(user.task?.description)!)
@@ -57,6 +55,9 @@ class MapPinViewController: UIViewController {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

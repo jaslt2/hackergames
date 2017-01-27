@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		455B77E91E3B5CED00AEE550 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455B77E81E3B5CED00AEE550 /* SecondViewController.swift */; };
 		45E917A91E3A06590025AB1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E917A81E3A06590025AB1C /* AppDelegate.swift */; };
 		45E917B01E3A06590025AB1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45E917AE1E3A06590025AB1C /* Main.storyboard */; };
 		45E917B21E3A06590025AB1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45E917B11E3A06590025AB1C /* Assets.xcassets */; };
@@ -19,12 +20,16 @@
 		45E917D21E3A3E9A0025AB1C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E917D11E3A3E9A0025AB1C /* MapViewController.swift */; };
 		45E917D51E3A479D0025AB1C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E917D41E3A479D0025AB1C /* UserManager.swift */; };
 		45E917D71E3A4FED0025AB1C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E917D61E3A4FED0025AB1C /* SignInViewController.swift */; };
+		45E917DE1E3ABCFE0025AB1C /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E917DD1E3ABCFE0025AB1C /* LocationService.m */; };
+		45E917E01E3ABDCE0025AB1C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E917DF1E3ABDCE0025AB1C /* MapKit.framework */; };
+		45E917E41E3B51D50025AB1C /* ProfilePinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E917E31E3B51D50025AB1C /* ProfilePinAnnotation.swift */; };
+		45E917E61E3B52670025AB1C /* ProfileMKPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E917E51E3B52670025AB1C /* ProfileMKPointAnnotation.swift */; };
 		731B5A30F3F4C862C4729103 /* Pods_HackingGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A9F19AA024252DB3100106 /* Pods_HackingGames.framework */; };
-		F766551E1E3B46E600DCBE84 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F766551D1E3B46E600DCBE84 /* SecondViewController.swift */; };
 		F8883ED11E3A631900D3A9AD /* MapPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8883ED01E3A631900D3A9AD /* MapPinViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		455B77E81E3B5CED00AEE550 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		45E917A51E3A06590025AB1C /* HackingGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackingGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45E917A81E3A06590025AB1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45E917AF1E3A06590025AB1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,10 +44,15 @@
 		45E917D11E3A3E9A0025AB1C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		45E917D41E3A479D0025AB1C /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		45E917D61E3A4FED0025AB1C /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		45E917DB1E3ABCFD0025AB1C /* HackingGames-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackingGames-Bridging-Header.h"; sourceTree = "<group>"; };
+		45E917DC1E3ABCFE0025AB1C /* LocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
+		45E917DD1E3ABCFE0025AB1C /* LocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
+		45E917DF1E3ABDCE0025AB1C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		45E917E31E3B51D50025AB1C /* ProfilePinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePinAnnotation.swift; sourceTree = "<group>"; };
+		45E917E51E3B52670025AB1C /* ProfileMKPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMKPointAnnotation.swift; sourceTree = "<group>"; };
 		91A9F19AA024252DB3100106 /* Pods_HackingGames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackingGames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB843B1F63337CFF623F0D2 /* Pods-HackingGames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackingGames.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackingGames/Pods-HackingGames.debug.xcconfig"; sourceTree = "<group>"; };
 		D5C65B95C2C0AF30F448CD09 /* Pods-HackingGames.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackingGames.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackingGames/Pods-HackingGames.release.xcconfig"; sourceTree = "<group>"; };
-		F766551D1E3B46E600DCBE84 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		F8883ED01E3A631900D3A9AD /* MapPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPinViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,6 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45E917CA1E3A1ADA0025AB1C /* CoreLocation.framework in Frameworks */,
+				45E917E01E3ABDCE0025AB1C /* MapKit.framework in Frameworks */,
 				731B5A30F3F4C862C4729103 /* Pods_HackingGames.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,6 +73,7 @@
 		11C957BC753EABE63ECF3470 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45E917DF1E3ABDCE0025AB1C /* MapKit.framework */,
 				45E917C91E3A1ADA0025AB1C /* CoreLocation.framework */,
 				91A9F19AA024252DB3100106 /* Pods_HackingGames.framework */,
 			);
@@ -89,18 +101,19 @@
 		45E917A71E3A06590025AB1C /* HackingGames */ = {
 			isa = PBXGroup;
 			children = (
+				45E917E11E3B51B50025AB1C /* ViewObjects */,
 				45E917D31E3A3EA30025AB1C /* AppDelegate */,
 				45E917C41E3A17F80025AB1C /* Manager */,
 				45E917BF1E3A0FE90025AB1C /* Model */,
 				45E917BC1E3A07780025AB1C /* Configuration */,
 				45E917D11E3A3E9A0025AB1C /* MapViewController.swift */,
 				45E917D61E3A4FED0025AB1C /* SignInViewController.swift */,
-				F766551D1E3B46E600DCBE84 /* SecondViewController.swift */,
+				F8883ED01E3A631900D3A9AD /* MapPinViewController.swift */,
+				455B77E81E3B5CED00AEE550 /* SecondViewController.swift */,
 				45E917AE1E3A06590025AB1C /* Main.storyboard */,
 				45E917B11E3A06590025AB1C /* Assets.xcassets */,
 				45E917B31E3A06590025AB1C /* LaunchScreen.storyboard */,
 				45E917B61E3A06590025AB1C /* Info.plist */,
-				F8883ED01E3A631900D3A9AD /* MapPinViewController.swift */,
 			);
 			path = HackingGames;
 			sourceTree = "<group>";
@@ -125,8 +138,11 @@
 		45E917C41E3A17F80025AB1C /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				45E917DC1E3ABCFE0025AB1C /* LocationService.h */,
+				45E917DD1E3ABCFE0025AB1C /* LocationService.m */,
 				45E917C01E3A11B40025AB1C /* FirebaseManager.swift */,
 				45E917D41E3A479D0025AB1C /* UserManager.swift */,
+				45E917DB1E3ABCFD0025AB1C /* HackingGames-Bridging-Header.h */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -137,6 +153,23 @@
 				45E917A81E3A06590025AB1C /* AppDelegate.swift */,
 			);
 			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		45E917E11E3B51B50025AB1C /* ViewObjects */ = {
+			isa = PBXGroup;
+			children = (
+				45E917E21E3B51BD0025AB1C /* MapPin */,
+			);
+			name = ViewObjects;
+			sourceTree = "<group>";
+		};
+		45E917E21E3B51BD0025AB1C /* MapPin */ = {
+			isa = PBXGroup;
+			children = (
+				45E917E31E3B51D50025AB1C /* ProfilePinAnnotation.swift */,
+				45E917E51E3B52670025AB1C /* ProfileMKPointAnnotation.swift */,
+			);
+			name = MapPin;
 			sourceTree = "<group>";
 		};
 		517535AEB6D57B21D129DC57 /* Pods */ = {
@@ -184,6 +217,7 @@
 					45E917A41E3A06590025AB1C = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 8JVK53ZY4C;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -273,12 +307,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				455B77E91E3B5CED00AEE550 /* SecondViewController.swift in Sources */,
 				F8883ED11E3A631900D3A9AD /* MapPinViewController.swift in Sources */,
 				45E917C11E3A11B40025AB1C /* FirebaseManager.swift in Sources */,
+				45E917E61E3B52670025AB1C /* ProfileMKPointAnnotation.swift in Sources */,
 				45E917A91E3A06590025AB1C /* AppDelegate.swift in Sources */,
-				F766551E1E3B46E600DCBE84 /* SecondViewController.swift in Sources */,
 				45E917C61E3A18140025AB1C /* User.swift in Sources */,
+				45E917DE1E3ABCFE0025AB1C /* LocationService.m in Sources */,
 				45E917D71E3A4FED0025AB1C /* SignInViewController.swift in Sources */,
+				45E917E41E3B51D50025AB1C /* ProfilePinAnnotation.swift in Sources */,
 				45E917C81E3A19CD0025AB1C /* Task.swift in Sources */,
 				45E917D51E3A479D0025AB1C /* UserManager.swift in Sources */,
 				45E917D21E3A3E9A0025AB1C /* MapViewController.swift in Sources */,
@@ -403,11 +440,14 @@
 			baseConfigurationReference = CFB843B1F63337CFF623F0D2 /* Pods-HackingGames.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 8JVK53ZY4C;
 				INFOPLIST_FILE = HackingGames/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.uk.hackinggames.HackingGames;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HackingGames/HackingGames-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -417,11 +457,13 @@
 			baseConfigurationReference = D5C65B95C2C0AF30F448CD09 /* Pods-HackingGames.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 8JVK53ZY4C;
 				INFOPLIST_FILE = HackingGames/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.uk.hackinggames.HackingGames;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HackingGames/HackingGames-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
