@@ -18,6 +18,7 @@ enum Disability : Int
 
 struct User
 {
+    private (set) var userId : String?
     private (set) var name : String?
     private (set) var description : String?
     private (set) var email : String?
@@ -29,8 +30,10 @@ struct User
     
     private (set) var task : Task?
     
-    init(infos : NSDictionary)
+    init(infos : NSDictionary, key : String)
     {
+        self.userId = key
+        
         self.name = infos["displayName"] as? String
         
         self.email = infos["email"] as? String
