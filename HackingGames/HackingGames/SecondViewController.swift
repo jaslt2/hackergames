@@ -18,23 +18,20 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 
     var delegate : ProfileSetupProtocol?
     
-    @IBOutlet weak var userDescription: UITextView!
-    @IBOutlet weak var disabilityPicker: UIPickerView!
-    @IBOutlet weak var photo: UIImageView!
-    @IBOutlet weak var displayName: UILabel!
-    @IBOutlet weak var phoneNumber: UILabel!
-    @IBOutlet weak var email: UILabel!
-    @IBAction func buttonPressed(_ sender: Any) {
-        print("Submitting user profile")
-        self.updateUser(description: self.userDescription.text, disability: self.selectedDisability!)
-    }
-    
     var user : FIRUser!
     var currentUser : User? = nil
     var selectedDisability: String?
     var disabilityType: String?
     let types = ["Autism", "Blindness", "Deafness", "ADHD"]
     
+    
+    @IBOutlet weak var userDescription: UITextView!
+    @IBOutlet weak var disabilityPicker: UIPickerView!
+    @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var displayName: UILabel!
+    @IBOutlet weak var phoneNumber: UILabel!
+    @IBOutlet weak var email: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -115,5 +112,14 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             self.delegate?.profileWasSetup()
         }
     }
+    
+    @IBAction func buttonPressed(_ sender: Any) {
+        
+        if let disability : String = self.selectedDisability
+        {
+            self.updateUser(description: self.userDescription.text, disability: disability)
+        }
+    }
+    
 }
 
