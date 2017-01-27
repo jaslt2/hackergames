@@ -10,8 +10,14 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
+protocol ProfileSetupProtocol {
+    func profileWasSetup()
+}
+
 class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    var delegate : ProfileSetupProtocol?
+    
     @IBOutlet weak var userDescription: UITextView!
     @IBOutlet weak var disabilityPicker: UIPickerView!
     @IBOutlet weak var photo: UIImageView!
@@ -104,6 +110,10 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
    func updateUser(description: String, disability: String){
         FIRDatabase.database().reference().child("users/" + self.user.uid + "/description").setValue(description)
         FIRDatabase.database().reference().child("users/" + self.user.uid + "/disability").setValue(disability)
+    
+        self.dismiss(animated: true) {
+            self.delegate?.profileWasSetup()
+        }
     }
 }
 

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import GoogleSignIn
 
-class SignInViewController : UIViewController,GIDSignInUIDelegate,UserSignInDelegate
+class SignInViewController : UIViewController,GIDSignInUIDelegate,UserSignInDelegate,ProfileSetupProtocol
 {
     let profileSegue : String = "SigninToCreateProfileSegue"
 
@@ -69,6 +69,18 @@ class SignInViewController : UIViewController,GIDSignInUIDelegate,UserSignInDele
         actionSheet.show(in:self.view)
     }
     
+    func profileWasSetup() {
+        self.dismiss(animated: false) {}
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == self.profileSegue
+        {
+            let controller : SecondViewController  = segue.destination as! SecondViewController
+            controller.delegate = self
+        }
+    }
 }
 
 extension SignInViewController : UIActionSheetDelegate
@@ -79,7 +91,7 @@ extension SignInViewController : UIActionSheetDelegate
         switch buttonIndex {
         case 0:
             UserManager.sharedInstance.updateDisabilityFlag(disability: Disability.HAVE)
-            self.performSegue(withIdentifier: profileSegue, sender: self)
+            self.performSegue(withIdentifier: self.profileSegue, sender: self)
         case 1:
             UserManager.sharedInstance.updateDisabilityFlag(disability: Disability.NONE)
             self.dismiss(animated: true) {}
