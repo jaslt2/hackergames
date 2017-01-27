@@ -17,36 +17,51 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var displayName: UILabel!
     @IBOutlet weak var phoneNumber: UILabel!
+    @IBOutlet weak var email: UILabel!
+    @IBAction func buttonPressed(_ sender: Any) {
+        print("Submitting user profile")
+        self.updateUser(description: self.userDescription.text, disability: self.selectedDisability!)
+    }
+    
     var user : FIRUser!
     var currentUser : User? = nil
     var selectedDisability: String?
     var disabilityType: String?
-    var types = ["Autism", "Blindness", "Deafness", "ADHD"]
-
-    @IBOutlet weak var email: UILabel!
-    @IBAction func buttonPressed(_ sender: Any) {
-        print("Submitting user profile")
-        //self.updateUser(description: self.userDescription.text, disability: self.selectedDisability!)
-    }
+    let types = ["Autism", "Blindness", "Deafness", "ADHD"]
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.user = UserManager.sharedInstance.getFirebaseUser()
         FirebaseManager.sharedInstance.getUserById(userId: user.uid, completion: { (user: User) -> Void in
             self.currentUser =  user
             self.phoneNumber.text = self.currentUser?.phoneNumber;
+            self.userDescription.text = self.currentUser?.description
+            if self.currentUser?.disability != nil{
+                self.disabilityPicker.selectRow(self.findIndexOfDisability(type: (self.currentUser?.disability)!), inComponent: 0, animated: true)
+            } else {
+                self.disabilityPicker.selectRow(0, inComponent: 0, animated: true)
+            }
         })
         
         self.disabilityPicker.delegate = self
         self.disabilityPicker.dataSource = self
-        self.displayName.text = user.displayName
-        self.email.text = user.email
+        self.displayName.text = self.user.displayName
+        self.email.text = self.user.email
         
-        if let url = NSURL(string: (user.photoURL?.absoluteString)!) {
+        if let url = NSURL(string: (self.user.photoURL?.absoluteString)!) {
             if let data = NSData(contentsOf: url as URL) {
                 self.photo.image = UIImage(data: data as Data)
+                self.photo.layer.cornerRadius = self.photo.frame.size.width / 2;
             }        
+        }
+    }
+    
+    func findIndexOfDisability(type: String) -> Int {
+        if let index = types.index(of: type) {
+            print("Found disability at index \(index)")
+            return index
+        } else{
+            return 0
         }
     }
     
@@ -64,13 +79,28 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.selectedDisability = self.types[row]
+        print("Set selected disability to ", self.selectedDisability!)
+    }
+    
+    func pickerView(_ reusingpickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
+        var label = view as! UILabel!
+        if label == nil {
+            label = UILabel()
+        }
+        
+        let data = self.types[row]
+        let title = NSAttributedString(string: data, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 13.0, weight: UIFontWeightRegular)])
+        label?.attributedText = title
+        label?.textAlignment = .center
+        return label!
         
     }
     
-   /** func updateUser(description: String, disability: String){
-        
-        FIRDatabase.database().reference().child("users/" + self.user + "/description").setValue(description)
-        FIRDatabase.database().reference().child("users/" + self.user + "/disability").setValue(disability)
-    }**/
+   func updateUser(description: String, disability: String){
+        FIRDatabase.database().reference().child("users/" + self.user.uid + "/description").setValue(description)
+        FIRDatabase.database().reference().child("users/" + self.user.uid + "/disability").setValue(disability)
+    }
 }
 
