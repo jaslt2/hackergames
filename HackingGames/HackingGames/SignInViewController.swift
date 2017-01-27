@@ -12,8 +12,9 @@ import GoogleSignIn
 
 class SignInViewController : UIViewController,GIDSignInUIDelegate,UserSignInDelegate
 {
-
+    
     @IBOutlet weak var signInButton: GIDSignInButton!
+    let profileSegue : String = "SigninToCreateProfileSegue"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,18 +44,19 @@ class SignInViewController : UIViewController,GIDSignInUIDelegate,UserSignInDele
 
 extension SignInViewController : UIActionSheetDelegate
 {
+    
     func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
         
         switch buttonIndex {
         case 0:
             UserManager.sharedInstance.updateDisabilityFlag(disability: Disability.HAVE)
+            self.performSegue(withIdentifier: profileSegue, sender: self)
         case 1:
             UserManager.sharedInstance.updateDisabilityFlag(disability: Disability.NONE)
+            self.dismiss(animated: true) {}
         default:
             break
         }
-        
-        self.dismiss(animated: true) {}
     }
 
 }

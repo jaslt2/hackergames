@@ -36,6 +36,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xza-KL-5XJ"/>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="show" identifier="SigninToCreateProfileSegue" id="8Md-ND-W6b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -390,7 +393,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XRk-fT-u0T" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uQv-To-y5A">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uQv-To-y5A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -408,4 +411,7 @@
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="8Md-ND-W6b"/>
+    </inferredMetricsTieBreakers>
 </document>
