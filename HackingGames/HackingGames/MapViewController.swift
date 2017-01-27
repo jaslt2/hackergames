@@ -151,19 +151,20 @@ extension MapViewController : MKMapViewDelegate,UserMapProtocol
     
     func userHasRequestedHelp(user: User) {
         
-        /*self.userDetailView.isHidden = true
+        self.userDetailView.isHidden = true
         
-        self.userHelpView = UserHelpView()
-        self.userHelpView?.user = user
-        
+        self.userHelpView = UserHelpView(frame:  CGRect(x: 0, y: 0, width: self.view.frame.width - 50, height: self.view.frame.height / 1.8))
         self.userHelpView?.center = self.view.center
         
-        self.view.addSubview(self.userHelpView!)*/
+        self.userHelpView?.user = user
+        
+        self.view.addSubview(self.userHelpView!)
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         UIView.animate(withDuration: 1.0) {
             self.userDetailView.isHidden = true
+            self.userHelpView?.isHidden = true
         }
     }
      func mapView(_ viewFormapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

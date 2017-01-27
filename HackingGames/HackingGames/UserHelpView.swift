@@ -24,28 +24,30 @@ class UserHelpView: UIView {
     @IBOutlet var callButton : UIButton!
     @IBOutlet var sendMessageButton : UIButton!
 
-    class func instanceFromNib() -> UIView {
-        return UINib(nibName: "UserHelpView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
+    class func instanceFromNib() -> UserHelpView {
+        return UINib(nibName: "UserHelpView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UserHelpView
+    }
+    
+    func loadFromNib()
+    {
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: "UserHelpView", bundle: bundle)
+        print(nib.description)
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+        view.frame = bounds
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.translatesAutoresizingMaskIntoConstraints = true
+        self.addSubview(view)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let view = UserHelpView.instanceFromNib
-        view().frame = bounds
-        view().autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view().translatesAutoresizingMaskIntoConstraints = true
-        
-        self.addSubview(view())
+        loadFromNib()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        let view = UserHelpView.instanceFromNib
-        view().frame = bounds
-        view().autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view().translatesAutoresizingMaskIntoConstraints = true
-        
-        self.addSubview(view())
+        loadFromNib()
     }
     
     func updateInformations()
@@ -54,6 +56,7 @@ class UserHelpView: UIView {
 
         self.callButton.setTitle("CALL " + (self.user?.name)!, for: UIControlState.normal)
         self.callButton.addTarget(self, action: #selector(UserHelpView.callUser), for: UIControlEvents.touchUpInside)
+        
         
         self.sendMessageButton.setTitle("Send message", for: UIControlState.normal)
         self.sendMessageButton.setTitleColor(Constants.blueColor, for: UIControlState.normal)
@@ -65,11 +68,21 @@ class UserHelpView: UIView {
         
         self.helpMessageLabel.text = "Thank you for helping " + (self.user?.name?.capitalized)!
         self.taskDescriptionLabel.text = self.user?.task?.description
-        
+     
+        self.sizeToFit()
     }
 
     func callUser()
     {
-        self.removeFromSuperview()
+         self.removeFromSuperview()
+        
+        if let tel = self.user!.phoneNumber
+        {
+        let url = NSURL(string: "tel://\(tel)")
+        
+       if UIApplication.shared.canOpenURL(url as! URL) {
+            UIApplication.shared.openURL(url as! URL)
+        }
+        }
     }
 }
