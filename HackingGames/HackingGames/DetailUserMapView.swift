@@ -11,11 +11,15 @@ import UIKit
 
 
 protocol UserMapProtocol {
+    func userWantInformation(user : User)
     func userHasRequestedHelp(user : User)
 }
+
 class DetailUserMapView: UIView {
     
     var delegate : UserMapProtocol?
+    
+    var tapGesture : UITapGestureRecognizer?
     
     var user : User?
     {
@@ -35,6 +39,11 @@ class DetailUserMapView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        self.isUserInteractionEnabled = true
+        self.tapGesture = UITapGestureRecognizer(target: self, action: #selector(DetailUserMapView.userWantInformation))
+        self.tapGesture?.numberOfTapsRequired = 1
+        self.addGestureRecognizer(self.tapGesture!)
     }
     
     required override init(frame: CGRect) {
@@ -78,6 +87,11 @@ class DetailUserMapView: UIView {
         
             self.distanceLabel.text = NSString(format: " %.2f km",distanceInMeters/1000) as String
         }
+    }
+    
+    func userWantInformation()
+    {
+        self.delegate?.userWantInformation(user: self.user!)
     }
     
     func userRequestHelp()

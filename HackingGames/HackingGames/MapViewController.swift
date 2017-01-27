@@ -18,6 +18,7 @@ class MapViewController: UIViewController {
     private var annotations : NSMutableArray?
     
     @IBOutlet weak var userDetailView : DetailUserMapView!
+    var userHelpView : UserHelpView?
     
     @IBOutlet weak var mapActionButton: UIButton!
     @IBOutlet weak var listActionButton: UIButton!
@@ -27,6 +28,7 @@ class MapViewController: UIViewController {
     private var user : FIRUser? = nil
     
     var userSelected : User?
+    
     
     @IBOutlet weak var mapView: MKMapView!
 
@@ -143,8 +145,20 @@ class MapViewController: UIViewController {
 
 extension MapViewController : MKMapViewDelegate,UserMapProtocol
 {
-    func userHasRequestedHelp(user: User) {
+    func userWantInformation(user: User) {
         self.performSegue(withIdentifier: pinSegue, sender: self)
+    }
+    
+    func userHasRequestedHelp(user: User) {
+        
+        /*self.userDetailView.isHidden = true
+        
+        self.userHelpView = UserHelpView()
+        self.userHelpView?.user = user
+        
+        self.userHelpView?.center = self.view.center
+        
+        self.view.addSubview(self.userHelpView!)*/
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
