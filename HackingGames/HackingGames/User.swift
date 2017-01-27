@@ -23,6 +23,9 @@ struct User
     private (set) var email : String?
     private (set) var location : CLLocation!
     private (set) var photoUrl : String?
+    private (set) var phoneNumber : String?
+    private (set) var disability : String?
+    private (set) var disabilityInfo : String?
     
     private (set) var task : Task?
     
@@ -33,6 +36,23 @@ struct User
         self.email = infos["email"] as? String
         
         self.photoUrl = infos["photoURL"] as? String
+        
+        self.phoneNumber = infos["phoneNumber"] as? String
+        
+        if(infos["disability"] != nil)
+        {
+            self.disability = infos["disability"] as? String
+        }
+        
+        if(infos["disabilityInfo"] != nil)
+        {
+            self.disabilityInfo = infos["disabilityInfo"] as? String
+        }
+        
+        if(infos["description"] != nil)
+        {
+            self.description = infos["description"] as? String
+        }
         
         if(infos["location"] != nil)
         {
@@ -51,8 +71,12 @@ struct User
         let taskType : NSNumber = (taskInfo["urgent"] as? NSNumber)!
         
         let taskStatus : String = taskInfo["status"] as! String
+      
+        let taskDescription : String = taskInfo["description"] as! String
+            
+        let taskName : String = taskInfo["name"] as! String
         
-        self.task = Task(desc: "", status: taskStatus, type: Int(taskType))
+            self.task = Task(desc: taskDescription, status: taskStatus, type: Int(taskType), name: taskName)
         }
     }
 

@@ -41,5 +41,22 @@ struct FirebaseManager {
         }
     }
     
+    func getUserById(userId : String, completion:@escaping (_ user : User) -> Void)
+    {
+        self.databaseReference.child("users/"+userId).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let value = snapshot.value as? NSDictionary
+            
+            print (value ?? "")
+            
+             let user : User  = User(infos: value! )
+            
+             completion(user)
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
     
 }

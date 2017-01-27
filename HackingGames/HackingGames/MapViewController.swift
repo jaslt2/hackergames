@@ -19,9 +19,18 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var mapActionButton: UIButton!
     @IBOutlet weak var listActionButton: UIButton!
+
+    private let pinSegue : String = "MapToPinSegue"
+    
+    private var user : FIRUser? = nil
     
     @IBOutlet weak var mapView: MKMapView!
+
     
+    @IBAction func goToPinButtonClicked(_ sender: UIButton) {
+        print("button clicked")
+         self.performSegue(withIdentifier: pinSegue, sender: self)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         self.listUser = nil
@@ -46,15 +55,13 @@ class MapViewController: UIViewController {
                 self.addMapAnnotations()
             }
         }
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-
         signInTheUserIfRequired()
     
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -85,7 +92,6 @@ class MapViewController: UIViewController {
             }
             self.annotations?.add(annontation)
         }
-        
         self.mapView.addAnnotations(self.annotations! as NSArray as! [MKAnnotation])
     
     }
