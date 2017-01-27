@@ -115,10 +115,14 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func buttonPressed(_ sender: Any) {
         
-        if let disability : String = self.selectedDisability
+    
+        if self.selectedDisability != nil
         {
-            self.updateUser(description: self.userDescription.text, disability: disability)
+            self.updateUser(description: self.userDescription.text, disability: self.selectedDisability!)
+        } else {
+            self.updateUser(description: self.userDescription.text, disability: "Autism")
         }
+        
     }
     
 }
