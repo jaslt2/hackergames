@@ -60,6 +60,7 @@ class MapPinViewController: UIViewController {
                 self.userTaskname.text = (task.name)!
             }
 
+            self.userToAssistName.text = user.name
             self.userBio.text = user.description
             self.disabilityName.text = user.disability
             self.disabilityInfo.text = user.disabilityInfo

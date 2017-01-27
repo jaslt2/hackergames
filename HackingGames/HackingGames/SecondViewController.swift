@@ -36,7 +36,9 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         FirebaseManager.sharedInstance.getUserById(userId: user.uid, completion: { (user: User) -> Void in
             self.currentUser =  user
             self.phoneNumber.text = self.currentUser?.phoneNumber;
-            self.userDescription.text = self.currentUser?.description
+            if self.currentUser?.description != nil{
+                self.userDescription.text = self.currentUser?.description
+            }
             if self.currentUser?.disability != nil{
                 self.disabilityPicker.selectRow(self.findIndexOfDisability(type: (self.currentUser?.disability)!), inComponent: 0, animated: true)
             } else {
