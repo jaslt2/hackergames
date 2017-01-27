@@ -25,6 +25,7 @@ class MapViewController: UIViewController {
 
     
     @IBAction func goToPinButtonClicked(_ sender: UIButton) {
+        print("button clicked")
          self.performSegue(withIdentifier: pinSegue, sender: self)
     }
     override func didReceiveMemoryWarning() {

@@ -13,7 +13,7 @@ import FirebaseAuth
 
 class MapPinViewController: UIViewController {
     
-    var userToAssist : FIRUser? = nil
+    var userToAssist : User? = nil
     
     @IBOutlet weak var profilePicture: UIImageView!
  
@@ -30,9 +30,18 @@ class MapPinViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.userToAssist = FirebaseManager.sharedInstance.getUserById(userId: UserManager.sharedInstance.getFirebaseUser()!.uid, completion: { _ in (user : User) })
-    //    self.userToAssistName.text = self.userToAssist?.displayName;
-      //  self.userTaskDescription.text = self.userToAssist?.task.description;
+        
+   
+        
+        FirebaseManager.sharedInstance.getUserById(userId: "39fkYXRAyHSsntJHMFl6EOrZSIW2", completion: { (user: User) -> Void in
+            self.userToAssist =  user
+            print("Loading user with name : "+(user.name)!)
+            self.userToAssistName.text = self.userToAssist?.name;
+          //  self.userTaskDescription.text = self.userToAssist?.task?.description;
+           
+        })
+      //        //  print("Loading user with name : "+(user.)!)
+      //
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,7 +50,7 @@ class MapPinViewController: UIViewController {
     }
     
     func assistUser(){
-        print("You offered to assist" + (self.userToAssist?.displayName)!)
+        print("You offered to assist" + (self.userToAssist?.name)!)
         
     }
 }
