@@ -22,7 +22,7 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var currentUser : User? = nil
     var selectedDisability: String?
     var disabilityType: String?
-    let types = ["Autism", "Blindness", "Deafness", "ADHD"]
+    let types = ["Autism", "Blindness", "Deafness", "ADHD", "Anxiety"]
     
     
     @IBOutlet weak var userDescription: UITextView!
@@ -56,8 +56,9 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         if let url = NSURL(string: (self.user.photoURL?.absoluteString)!) {
             if let data = NSData(contentsOf: url as URL) {
+                self.photo.layer.cornerRadius = self.photo.frame.height / 2;
+                self.photo.clipsToBounds = true
                 self.photo.image = UIImage(data: data as Data)
-                self.photo.layer.cornerRadius = self.photo.frame.size.width / 2;
             }        
         }
     }
