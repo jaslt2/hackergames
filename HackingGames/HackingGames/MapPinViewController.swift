@@ -13,7 +13,7 @@ import FirebaseAuth
 
 class MapPinViewController: UIViewController {
     
-    var userToAssist : User? = nil
+   // var userToAssist : User? = nil
     
     @IBOutlet weak var profilePicture: UIImageView!
  
@@ -22,6 +22,12 @@ class MapPinViewController: UIViewController {
     @IBOutlet weak var userTaskDescription: UILabel!
     @IBOutlet weak var userToAssistDesc: UILabel!
     @IBOutlet weak var userTaskname: UILabel!
+    
+    @IBOutlet weak var disabilityName: UILabel!
+    
+    @IBOutlet weak var disabilityInfo: UILabel!
+    @IBOutlet weak var userBio: UILabel!
+    @IBOutlet weak var photo: UIImageView!
     @IBAction func helpButtonPressed(_ sender: Any) {
       //  assistUser()
         print("You clicked the button")
@@ -34,14 +40,21 @@ class MapPinViewController: UIViewController {
    
         
         FirebaseManager.sharedInstance.getUserById(userId: "39fkYXRAyHSsntJHMFl6EOrZSIW2", completion: { (user: User) -> Void in
-            self.userToAssist =  user
-            print("Loading user with name : "+(user.name)!)
-            self.userToAssistName.text = self.userToAssist?.name;
-          //  self.userTaskDescription.text = self.userToAssist?.task?.description;
-           
+         //   self.userToAssist =  user
+            print("Loading user with task desription: "+(user.task?.description)!)
+            self.userToAssistName.text = user.name;
+            self.userTaskDescription.text = (user.task?.description)!
+            self.userTaskname.text = (user.task?.name)!
+            self.userBio.text = user.description
+            self.disabilityName.text = user.disability
+            self.disabilityInfo.text = user.disabilityInfo
+            if let url = NSURL(string: user.photoUrl!) {
+                if let data = NSData(contentsOf: url as URL) {
+                    self.photo.image = UIImage(data: data as Data)
+                }
+            }
         })
-      //        //  print("Loading user with name : "+(user.)!)
-      //
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,7 +63,7 @@ class MapPinViewController: UIViewController {
     }
     
     func assistUser(){
-        print("You offered to assist" + (self.userToAssist?.name)!)
+        print("You offered to assist" + (self.userToAssistName.text)!)
         
     }
 }

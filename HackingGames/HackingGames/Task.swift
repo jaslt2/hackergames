@@ -25,14 +25,16 @@ enum TaskType : Int
 struct Task
 {
         private (set) var description : String?
+        private (set) var name : String?
         private (set) var status : Status?
         private (set) var type : TaskType?
     
-    init(desc : String, status : String, type : Int)
+    init(desc : String, status : String, type : Int, name : String)
     {
        self.description = desc
        self.status = Status(rawValue: status)
        self.type = TaskType(rawValue: type)
+       self.name = name
     }
     
 }
