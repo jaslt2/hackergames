@@ -20,6 +20,7 @@
 		45E917D51E3A479D0025AB1C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E917D41E3A479D0025AB1C /* UserManager.swift */; };
 		45E917D71E3A4FED0025AB1C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E917D61E3A4FED0025AB1C /* SignInViewController.swift */; };
 		731B5A30F3F4C862C4729103 /* Pods_HackingGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A9F19AA024252DB3100106 /* Pods_HackingGames.framework */; };
+		F766551E1E3B46E600DCBE84 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F766551D1E3B46E600DCBE84 /* SecondViewController.swift */; };
 		F8883ED11E3A631900D3A9AD /* MapPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8883ED01E3A631900D3A9AD /* MapPinViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		91A9F19AA024252DB3100106 /* Pods_HackingGames.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackingGames.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB843B1F63337CFF623F0D2 /* Pods-HackingGames.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackingGames.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackingGames/Pods-HackingGames.debug.xcconfig"; sourceTree = "<group>"; };
 		D5C65B95C2C0AF30F448CD09 /* Pods-HackingGames.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackingGames.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackingGames/Pods-HackingGames.release.xcconfig"; sourceTree = "<group>"; };
+		F766551D1E3B46E600DCBE84 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		F8883ED01E3A631900D3A9AD /* MapPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPinViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +95,7 @@
 				45E917BC1E3A07780025AB1C /* Configuration */,
 				45E917D11E3A3E9A0025AB1C /* MapViewController.swift */,
 				45E917D61E3A4FED0025AB1C /* SignInViewController.swift */,
+				F766551D1E3B46E600DCBE84 /* SecondViewController.swift */,
 				45E917AE1E3A06590025AB1C /* Main.storyboard */,
 				45E917B11E3A06590025AB1C /* Assets.xcassets */,
 				45E917B31E3A06590025AB1C /* LaunchScreen.storyboard */,
@@ -273,6 +276,7 @@
 				F8883ED11E3A631900D3A9AD /* MapPinViewController.swift in Sources */,
 				45E917C11E3A11B40025AB1C /* FirebaseManager.swift in Sources */,
 				45E917A91E3A06590025AB1C /* AppDelegate.swift in Sources */,
+				F766551E1E3B46E600DCBE84 /* SecondViewController.swift in Sources */,
 				45E917C61E3A18140025AB1C /* User.swift in Sources */,
 				45E917D71E3A4FED0025AB1C /* SignInViewController.swift in Sources */,
 				45E917C81E3A19CD0025AB1C /* Task.swift in Sources */,

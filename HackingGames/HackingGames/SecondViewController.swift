@@ -14,22 +14,40 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 
     @IBOutlet weak var userDescription: UITextView!
     @IBOutlet weak var disabilityPicker: UIPickerView!
-    
-    var selectedDisability: String?
+    @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var displayName: UILabel!
+    @IBOutlet weak var phoneNumber: UILabel!
     var user : FIRUser!
+    var currentUser : User? = nil
+    var selectedDisability: String?
     var disabilityType: String?
     var types = ["Autism", "Blindness", "Deafness", "ADHD"]
 
+    @IBOutlet weak var email: UILabel!
     @IBAction func buttonPressed(_ sender: Any) {
         print("Submitting user profile")
-        self.updateUser(description: self.userDescription.text, disability: self.selectedDisability!)
+        //self.updateUser(description: self.userDescription.text, disability: self.selectedDisability!)
     }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.user = UserManager.sharedInstance.getFirebaseUser()
+        FirebaseManager.sharedInstance.getUserById(userId: user.uid, completion: { (user: User) -> Void in
+            self.currentUser =  user
+            self.phoneNumber.text = self.currentUser?.phoneNumber;
+        })
+        
         self.disabilityPicker.delegate = self
         self.disabilityPicker.dataSource = self
+        self.displayName.text = user.displayName
+        self.email.text = user.email
         
+        if let url = NSURL(string: (user.photoURL?.absoluteString)!) {
+            if let data = NSData(contentsOf: url as URL) {
+                self.photo.image = UIImage(data: data as Data)
+            }        
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -49,11 +67,10 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
     }
     
-    func updateUser(description: String, disability: String){
-        //TODO Hardcoding this!!
-        var userId = "MfB4sE4fuEY0pkiF5gkThB8mtum1";
-        FIRDatabase.database().reference().child("users/" + userId + "/description").setValue(description)
-        FIRDatabase.database().reference().child("users/" + userId + "/disability").setValue(disability)
-    }
+   /** func updateUser(description: String, disability: String){
+        
+        FIRDatabase.database().reference().child("users/" + self.user + "/description").setValue(description)
+        FIRDatabase.database().reference().child("users/" + self.user + "/disability").setValue(disability)
+    }**/
 }
 

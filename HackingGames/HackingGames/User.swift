@@ -23,6 +23,7 @@ struct User
     private (set) var email : String?
     private (set) var location : CLLocation!
     private (set) var photoUrl : String?
+    private (set) var phoneNumber : String?
     
     private (set) var task : Task?
     
@@ -33,6 +34,8 @@ struct User
         self.email = infos["email"] as? String
         
         self.photoUrl = infos["photoURL"] as? String
+        
+        self.phoneNumber = infos["phoneNumber"] as? String
         
         if(infos["location"] != nil)
         {
