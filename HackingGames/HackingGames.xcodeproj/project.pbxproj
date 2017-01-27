@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		455B77E91E3B5CED00AEE550 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455B77E81E3B5CED00AEE550 /* SecondViewController.swift */; };
 		455B77EB1E3B70ED00AEE550 /* DetailUserMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455B77EA1E3B70ED00AEE550 /* DetailUserMapView.swift */; };
+		455B77ED1E3B8E9D00AEE550 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455B77EC1E3B8E9D00AEE550 /* Constants.swift */; };
 		45E917A91E3A06590025AB1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E917A81E3A06590025AB1C /* AppDelegate.swift */; };
 		45E917B01E3A06590025AB1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45E917AE1E3A06590025AB1C /* Main.storyboard */; };
 		45E917B21E3A06590025AB1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45E917B11E3A06590025AB1C /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		455B77E81E3B5CED00AEE550 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		455B77EA1E3B70ED00AEE550 /* DetailUserMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailUserMapView.swift; sourceTree = "<group>"; };
+		455B77EC1E3B8E9D00AEE550 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		45E917A51E3A06590025AB1C /* HackingGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackingGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45E917A81E3A06590025AB1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45E917AF1E3A06590025AB1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		45E917A71E3A06590025AB1C /* HackingGames */ = {
 			isa = PBXGroup;
 			children = (
+				455B77EC1E3B8E9D00AEE550 /* Constants.swift */,
 				45E917E11E3B51B50025AB1C /* ViewObjects */,
 				45E917D31E3A3EA30025AB1C /* AppDelegate */,
 				45E917C41E3A17F80025AB1C /* Manager */,
@@ -321,6 +324,7 @@
 				45E917D71E3A4FED0025AB1C /* SignInViewController.swift in Sources */,
 				45E917E41E3B51D50025AB1C /* ProfilePinAnnotation.swift in Sources */,
 				45E917C81E3A19CD0025AB1C /* Task.swift in Sources */,
+				455B77ED1E3B8E9D00AEE550 /* Constants.swift in Sources */,
 				45E917D51E3A479D0025AB1C /* UserManager.swift in Sources */,
 				45E917D21E3A3E9A0025AB1C /* MapViewController.swift in Sources */,
 			);
