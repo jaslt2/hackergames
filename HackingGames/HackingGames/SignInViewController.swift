@@ -14,6 +14,7 @@ class SignInViewController : UIViewController,GIDSignInUIDelegate,UserSignInDele
 {
     let profileSegue : String = "SigninToCreateProfileSegue"
 
+    @IBOutlet weak var welcomeMessageLabel : UILabel!
     @IBOutlet weak var emailTextField : UITextField!
     @IBOutlet weak var passwordTextField : UITextField!
     @IBOutlet weak var signInButton : UIButton!
@@ -21,14 +22,14 @@ class SignInViewController : UIViewController,GIDSignInUIDelegate,UserSignInDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.welcomeMessageLabel.textColor = Constants.blueColor
+        
         GIDSignIn.sharedInstance().uiDelegate = self
         UserManager.sharedInstance.delegate = self
         
-        self.signInButton.layer.borderWidth = 1
-        self.signInButton.layer.borderColor = UIColor.white.cgColor
-        
-        self.googleSignInButton.layer.borderWidth = 1
-        self.googleSignInButton.layer.borderColor = UIColor.white.cgColor
+        self.signInButton.backgroundColor = Constants.blueColor
+        self.googleSignInButton.setTitleColor(Constants.blueColor, for: UIControlState.normal)
         
         addBorderLine(textField: emailTextField)
         addBorderLine(textField: passwordTextField)
@@ -46,7 +47,7 @@ class SignInViewController : UIViewController,GIDSignInUIDelegate,UserSignInDele
     {
         let border : CALayer = CALayer()
         border.borderWidth = 1
-        border.borderColor = UIColor.white.cgColor
+        border.borderColor = Constants.blueColor.cgColor
         border.frame = CGRect(x: 0, y: textField.frame.size.height - border.borderWidth, width: textField.frame.size.width, height:  textField.frame.size.height)
         textField.layer.addSublayer(border)
         textField.layer.masksToBounds = true

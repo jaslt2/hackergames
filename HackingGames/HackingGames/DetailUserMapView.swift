@@ -53,13 +53,15 @@ class DetailUserMapView: UIView {
         self.descriptionLabel.text = self.user?.description
         self.disabilityLabel.text = self.user?.disability
         
-        self.taskTypeLabel.textColor = UIColor.red
+        self.taskTypeLabel.textColor = self.user?.task?.type == TaskType.Urgent ? UIColor.red : UIColor.lightGray
+        
         self.helpButton.setTitle("HELP", for: UIControlState.normal)
         self.helpButton.setTitleColor(UIColor.white, for: UIControlState.normal)
         
         self.photoView.layer.cornerRadius = self.photoView.frame.size.width / 2;
         self.photoView.layer.masksToBounds = true 
-        self.helpButton.backgroundColor = UIColor(red: 18.0 / 255.0, green: 105.0 / 255.0, blue: 240.0 / 255.0, alpha: 1)
+        
+        self.helpButton.backgroundColor = Constants.blueColor
         
         self.helpButton.addTarget(self, action: #selector(DetailUserMapView.userRequestHelp), for: UIControlEvents.touchUpInside)
     
