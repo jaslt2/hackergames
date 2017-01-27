@@ -38,7 +38,7 @@ class SignInViewController : UIViewController,GIDSignInUIDelegate,UserSignInDele
         let actionSheet = UIActionSheet(title: "Do you have disability", delegate: self, cancelButtonTitle: nil, destructiveButtonTitle: nil, otherButtonTitles: "YES", "NO")
         actionSheet.show(in:self.view)
     }
-
+    
 }
 
 extension SignInViewController : UIActionSheetDelegate
@@ -56,5 +56,5 @@ extension SignInViewController : UIActionSheetDelegate
         
         self.dismiss(animated: true) {}
     }
-    
+
 }

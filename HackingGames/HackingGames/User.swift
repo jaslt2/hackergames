@@ -23,6 +23,7 @@ struct User
     private (set) var email : String?
     private (set) var location : CLLocation!
     private (set) var photoUrl : String?
+    private (set) var phoneNumber : String?
     private (set) var disability : String?
     private (set) var disabilityInfo : String?
     
@@ -35,6 +36,8 @@ struct User
         self.email = infos["email"] as? String
         
         self.photoUrl = infos["photoURL"] as? String
+        
+        self.phoneNumber = infos["phoneNumber"] as? String
         
         if(infos["disability"] != nil)
         {
@@ -51,7 +54,6 @@ struct User
             self.description = infos["description"] as? String
         }
         
-
         if(infos["location"] != nil)
         {
         let infoLocation : NSDictionary = (infos["location"] as? NSDictionary)!
