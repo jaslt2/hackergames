@@ -28,15 +28,17 @@ class MapPinViewController: UIViewController {
     @IBOutlet weak var disabilityInfo: UILabel!
     @IBOutlet weak var userBio: UILabel!
     @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var whatINeedTitle: UILabel!
     @IBAction func helpButtonPressed(_ sender: Any) {
-      //  assistUser()
-        print("You clicked the button")
+        self.assistUser()
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
+        self.photo.layer.cornerRadius = self.photo.frame.size.width / 2;
+
         FirebaseManager.sharedInstance.getUserById(userId: "39fkYXRAyHSsntJHMFl6EOrZSIW2", completion: { (user: User) -> Void in
          //   self.userToAssist =  user
             print("Loading user with task desription: "+(user.task?.description)!)
@@ -64,6 +66,7 @@ class MapPinViewController: UIViewController {
     }
     
     func assistUser(){
+        self.dismiss(animated: true, completion:nil)
         print("You offered to assist" + (self.userToAssistName.text)!)
         
     }
