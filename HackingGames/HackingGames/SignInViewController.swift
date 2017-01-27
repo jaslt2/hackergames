@@ -13,12 +13,25 @@ import GoogleSignIn
 class SignInViewController : UIViewController,GIDSignInUIDelegate,UserSignInDelegate
 {
 
-    @IBOutlet weak var signInButton: GIDSignInButton!
-
+    @IBOutlet weak var emailTextField : UITextField!
+    @IBOutlet weak var passwordTextField : UITextField!
+    @IBOutlet weak var signInButton : UIButton!
+    @IBOutlet weak var googleSignInButton : UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
         UserManager.sharedInstance.delegate = self
+        
+        self.signInButton.layer.borderWidth = 1
+        self.signInButton.layer.borderColor = UIColor.white.cgColor
+        
+        self.googleSignInButton.layer.borderWidth = 1
+        self.googleSignInButton.layer.borderColor = UIColor.white.cgColor
+        
+        addBorderLine(textField: emailTextField)
+        addBorderLine(textField: passwordTextField)
+      
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -26,6 +39,21 @@ class SignInViewController : UIViewController,GIDSignInUIDelegate,UserSignInDele
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func addBorderLine(textField : UITextField)
+    {
+        let border : CALayer = CALayer()
+        border.borderWidth = 1
+        border.borderColor = UIColor.white.cgColor
+        border.frame = CGRect(x: 0, y: textField.frame.size.height - border.borderWidth, width: textField.frame.size.width, height:  textField.frame.size.height)
+        textField.layer.addSublayer(border)
+        textField.layer.masksToBounds = true
+    }
+    
+    @IBAction func signInWithGoogle(sender : UIButton)
+    {
+      GIDSignIn.sharedInstance().signIn()
     }
     
     func existingUserIsSigned()

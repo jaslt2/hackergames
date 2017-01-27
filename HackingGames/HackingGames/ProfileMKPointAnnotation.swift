@@ -12,4 +12,6 @@ import MapKit
 class ProfileMKPointAnnotation : MKPointAnnotation {
     
     var photoUrl : String = ""
+    var user : User?
+
 }

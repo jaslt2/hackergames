@@ -13,7 +13,7 @@ import FirebaseAuth
 
 class MapPinViewController: UIViewController {
     
-   // var userToAssist : User? = nil
+    var userToAssist : User?
     
     @IBOutlet weak var profilePicture: UIImageView!
  
@@ -28,31 +28,16 @@ class MapPinViewController: UIViewController {
     @IBOutlet weak var disabilityInfo: UILabel!
     @IBOutlet weak var userBio: UILabel!
     @IBOutlet weak var photo: UIImageView!
+    
     @IBAction func helpButtonPressed(_ sender: Any) {
       //  assistUser()
         print("You clicked the button")
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        FirebaseManager.sharedInstance.getUserById(userId: "39fkYXRAyHSsntJHMFl6EOrZSIW2", completion: { (user: User) -> Void in
-         //   self.userToAssist =  user
-            print("Loading user with task desription: "+(user.task?.description)!)
-            self.userToAssistName.text = user.name;
-            self.userTaskDescription.text = (user.task?.description)!
-            self.userTaskname.text = (user.task?.name)!
-            self.userBio.text = user.description
-            self.disabilityName.text = user.disability
-            self.disabilityInfo.text = user.disabilityInfo
-            if let url = NSURL(string: user.photoUrl!) {
-                if let data = NSData(contentsOf: url as URL) {
-                    self.photo.image = UIImage(data: data as Data)
-                }
-            }
-        })
-
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        fillUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +48,28 @@ class MapPinViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func fillUser()
+    {
+        FirebaseManager.sharedInstance.getUserById(userId: (self.userToAssist?.userId)!, completion: { (user: User) -> Void in
+            self.userToAssistName.text = user.name;
+            
+            if  let task : Task? = user.task
+            {
+                self.userTaskDescription.text = (task?.description)
+                self.userTaskname.text = (task?.name)!
+            }
+
+            self.userBio.text = user.description
+            self.disabilityName.text = user.disability
+            self.disabilityInfo.text = user.disabilityInfo
+            if let url = NSURL(string: user.photoUrl!) {
+                if let data = NSData(contentsOf: url as URL) {
+                    self.photo.image = UIImage(data: data as Data)
+                }
+            }
+        })
+    }
     func assistUser(){
         print("You offered to assist" + (self.userToAssistName.text)!)
         

@@ -17,18 +17,21 @@ class MapViewController: UIViewController {
     private var listUser : [User]? = nil
     private var annotations : NSMutableArray?
     
+    @IBOutlet weak var userDetailView : DetailUserMapView!
+    
     @IBOutlet weak var mapActionButton: UIButton!
     @IBOutlet weak var listActionButton: UIButton!
 
-    private let pinSegue : String = "MapToPinSegue"
+    let pinSegue : String = "MapToPinSegue"
     
     private var user : FIRUser? = nil
+    
+    var userSelected : User?
     
     @IBOutlet weak var mapView: MKMapView!
 
     
     @IBAction func goToPinButtonClicked(_ sender: UIButton) {
-        print("button clicked")
          self.performSegue(withIdentifier: pinSegue, sender: self)
     }
     override func didReceiveMemoryWarning() {
@@ -38,6 +41,11 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        self.userDetailView.isHidden = true
+        self.userDetailView.delegate = self
+        
+        configureTabbarIcons()
         
         self.mapActionButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
         self.listActionButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
@@ -72,6 +80,18 @@ class MapViewController: UIViewController {
         }
     }
     
+    
+    func configureTabbarIcons()
+    {
+        self.tabBarController!.tabBar.items![0].image = UIImage(named: "mapTab")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        
+        self.tabBarController!.tabBar.items![0].selectedImage = UIImage(named: "mapTabSelected")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        
+        self.tabBarController!.tabBar.items![1].image = UIImage(named: "helpMeTab")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        
+        self.tabBarController!.tabBar.items![1].selectedImage = UIImage(named: "helpMeTabSelected")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        
+    }
     //MARK : - Map Actions
     
     func addMapAnnotations()
@@ -85,6 +105,7 @@ class MapViewController: UIViewController {
             annontation.coordinate = CLLocationCoordinate2D(latitude: user.location.coordinate.latitude, longitude: user.location.coordinate.longitude)
            
             annontation.title = user.name
+            annontation.user = user
             
             if (!(user.photoUrl?.isEmpty)!)
             {
@@ -119,8 +140,17 @@ class MapViewController: UIViewController {
     }
 }
 
-extension MapViewController : MKMapViewDelegate
+extension MapViewController : MKMapViewDelegate,UserMapProtocol
 {
+    func userHasRequestedHelp(user: User) {
+        self.performSegue(withIdentifier: pinSegue, sender: self)
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        UIView.animate(withDuration: 1.0) {
+            self.userDetailView.isHidden = true
+        }
+    }
      func mapView(_ viewFormapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if (annotation is MKUserLocation) {
             return nil
@@ -145,6 +175,32 @@ extension MapViewController : MKMapViewDelegate
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
+        if (view.annotation is MKUserLocation) {
+            return
+        }
+        let annotation : ProfileMKPointAnnotation = view.annotation as! ProfileMKPointAnnotation
+        
+        self.userSelected = annotation.user
+        
+        self.userDetailView.user = self.userSelected
+        
+        self.userDetailView.updateInformation()
+        
+        UIView.animate(withDuration: 1.0) { 
+            self.userDetailView.isHidden = false
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == pinSegue)
+        {
+            let controller : MapPinViewController = segue.destination as! MapPinViewController
+
+            controller.userToAssist = self.userSelected
+            
+        }
     }
 
 }
