@@ -44,11 +44,14 @@ class UserManager : NSObject
     }
     
     func createUser(){
-        print("Creating new user")
 
         if let user:FIRUser = getFirebaseUser()
         {
-        FIRDatabase.database().reference().child("users").child((user.uid)).setValue(["displayName": user.displayName ?? "", "email": user.email ?? "", "photoURL": user.photoURL?.absoluteString ?? "", "location": ["lat": "51.5033640", "long" : "-0.1276250"]])
+            let latitude : Double = (LocationService.sharedInstance().locationManager.location?.coordinate.latitude)!
+            let longitude : Double = (LocationService.sharedInstance().locationManager.location?.coordinate.latitude)!
+            
+        FIRDatabase.database().reference().child("users").child((user.uid)).setValue(["displayName": user.displayName ?? "", "email": user.email ?? "", "photoURL":
+            user.photoURL?.absoluteString ?? "", "location": ["lat":String(latitude), "long" :String(longitude)]])
         self.delegate?.newUserIsSigned()
         }
     }

@@ -31,6 +31,7 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         self.user = UserManager.sharedInstance.getFirebaseUser()
         FirebaseManager.sharedInstance.getUserById(userId: user.uid, completion: { (user: User) -> Void in
             self.currentUser =  user

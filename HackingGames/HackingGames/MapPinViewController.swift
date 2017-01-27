@@ -13,7 +13,7 @@ import FirebaseAuth
 
 class MapPinViewController: UIViewController {
     
-   // var userToAssist : User? = nil
+    var userToAssist : User?
     
     @IBOutlet weak var profilePicture: UIImageView!
  
@@ -28,23 +28,38 @@ class MapPinViewController: UIViewController {
     @IBOutlet weak var disabilityInfo: UILabel!
     @IBOutlet weak var userBio: UILabel!
     @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var whatINeedTitle: UILabel!
+
     @IBAction func helpButtonPressed(_ sender: Any) {
-      //  assistUser()
-        print("You clicked the button")
+        self.assistUser()
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-   
-        
-        FirebaseManager.sharedInstance.getUserById(userId: "39fkYXRAyHSsntJHMFl6EOrZSIW2", completion: { (user: User) -> Void in
-         //   self.userToAssist =  user
-            print("Loading user with task desription: "+(user.task?.description)!)
-            self.userToAssistName.text = user.name;
-            self.userTaskDescription.text = (user.task?.description)!
-            self.userTaskname.text = (user.task?.name)!
+        self.photo.layer.cornerRadius = self.photo.frame.size.width / 2;
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        fillUser()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func fillUser()
+    {
+        FirebaseManager.sharedInstance.getUserById(userId: (self.userToAssist?.userId)!, completion: { (user: User) -> Void in
+          
+            if let task = user.task
+            {
+                self.userTaskDescription.text = (task.description)
+                self.userTaskname.text = (task.name)!
+            }
+
             self.userBio.text = user.description
             self.disabilityName.text = user.disability
             self.disabilityInfo.text = user.disabilityInfo
@@ -54,15 +69,11 @@ class MapPinViewController: UIViewController {
                 }
             }
         })
-
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func assistUser(){
+        self.dismiss(animated: true, completion:nil)
         print("You offered to assist" + (self.userToAssistName.text)!)
         
     }

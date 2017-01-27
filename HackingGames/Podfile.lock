@@ -53,6 +53,9 @@ PODS:
   - GTMSessionFetcher/Full (1.1.8):
     - GTMSessionFetcher/Core (= 1.1.8)
   - ObjectMapper (2.2.2)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -60,6 +63,7 @@ DEPENDENCIES:
   - Firebase/Database
   - GoogleSignIn
   - ObjectMapper (~> 2.2)
+  - SDWebImage (~> 3.8)
 
 SPEC CHECKSUMS:
   Firebase: 53b2343db1ebfa3eb16bdb4318b8bb65360b2220
@@ -76,7 +80,8 @@ SPEC CHECKSUMS:
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: 41a6007cc048573008b886ce476c004f52082ea3
+PODFILE CHECKSUM: 7f1ee7d306ca37e19d65f074cb48f225dae1768b
 
 COCOAPODS: 1.1.1

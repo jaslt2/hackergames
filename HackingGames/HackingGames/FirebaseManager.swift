@@ -30,7 +30,7 @@ struct FirebaseManager {
             
             for  infoUser in value!
             {
-            let user : User  = User(infos: infoUser.value as! NSDictionary)
+            let user : User  = User(infos: infoUser.value as! NSDictionary, key: infoUser.key as! String)
                 
             listUsers.add(user)
             }
@@ -46,10 +46,8 @@ struct FirebaseManager {
         self.databaseReference.child("users/"+userId).observeSingleEvent(of: .value, with: { (snapshot) in
             
             let value = snapshot.value as? NSDictionary
-            
-            print (value ?? "")
-            
-             let user : User  = User(infos: value! )
+    
+            let user : User  = User(infos: value! , key: snapshot.key)
             
              completion(user)
             
